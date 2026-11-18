@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class NewOrDelete {
 	static Scanner userIntInput = new Scanner(System.in);
 	static Scanner userStringInput = new Scanner(System.in);
-
+	static Scanner userCharInput = new Scanner(System.in);
 	static int choice()
 	{
 		System.out.println("Add or Delete a Student");
@@ -17,61 +18,23 @@ public class NewOrDelete {
 	
 	public static void addStudent(ArrayList<Student> students)
 	{
-		System.out.println("Enter first name:");
+		System.out.println("Give first name");
 		String firstName = userStringInput.nextLine();
-		
-		System.out.println("Enter last name:");
+		System.out.println("Give last name");
 		String lastName = userStringInput.nextLine();
-		
-		System.out.println("Enter Period 1 class name:");
-		String cOne = userStringInput.nextLine();
-		
-		System.out.println("Enter Period 1 letter grade:");
-		String grOne = userStringInput.nextLine().toUpperCase();
-		
-		System.out.println("Enter Period 2 class name:");
-		String cTwo = userStringInput.nextLine();
-		
-		System.out.println("Enter Period 2 letter grade:");
-		String grTwo = userStringInput.nextLine().toUpperCase();
-		
-		System.out.println("Enter Period 3 class name:");
-		String cThree = userStringInput.nextLine();
-		
-		System.out.println("Enter Period 3 letter grade:");
-		String grThree = userStringInput.nextLine().toUpperCase();
-
-		double gpa = calculateGPA(grOne, grTwo, grThree);
-		
-		students.add(new Student(firstName, lastName, gpa, cOne, cTwo, cThree, grOne.charAt(0), grTwo.charAt(0), grThree.charAt(0)));
-		System.out.println(firstName + " " + lastName + " has been added.");
-	}
-
-	public static void deleteStudent(ArrayList<Student> students)
-	{
-		if (students.isEmpty())
-		{
-			System.out.println("There are no students to delete.");
-			return;
-		}
-
-		System.out.println("Select a student to delete:");
-		for (int i = 0; i < students.size(); i++)
-		{
-			System.out.println((i + 1) + ") " + students.get(i).getFirstName() + " " + students.get(i).getLastName());
-		}
-
-		int index = userIntInput.nextInt() - 1;
-
-		if (index >= 0 && index < students.size())
-		{
-			Student removed = students.remove(index);
-			System.out.println(removed.getFirstName() + " " + removed.getLastName() + " has been deleted.");
-		}
-		else
-		{
-			System.out.println("Invalid selection.");
-		}
+		System.out.println("First class?");
+		String classOne = userStringInput.nextLine();
+		System.out.println("Grade in that class?");
+		char gradeOne = userCharInput.next().charAt(0);
+		System.out.println("Second class?");
+		String classTwo = userStringInput.nextLine();
+		System.out.println("Grade in that class?");
+		char gradeTwo = userCharInput.next().charAt(0);
+		System.out.println("Third class?");
+		String classThree = userStringInput.nextLine();
+		System.out.println("Grade in that class?");
+		char gradeThree = userCharInput.next().charAt(0);
+		GroupProject.students.add(new Student(firstName, lastName, GPA.calculateGpa(), classOne, classTwo, classThree, gradeOne, gradeTwo, gradeThree))
 	}
 
 	private static double calculateGPA(String g1, String g2, String g3)
