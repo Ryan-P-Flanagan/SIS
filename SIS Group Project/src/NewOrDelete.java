@@ -11,5 +11,10 @@ public class NewOrDelete {
 		int selection = userIntInput.nextInt();
 		return selection;
 	}
+	
+	public static void addStudent()
+	{
+		
+	}
 
 }
