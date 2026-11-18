@@ -4,8 +4,17 @@ public class GroupProject
 
 		public static void main(String[] args)
 			{
-				// TODO Auto-generated method stub
-				System.out.println("Hello World");
+				switch(MainMenu.showMenu())
+				{
+					case 1: System.out.println(NewOrDelete.choice());
+					
+					case 2: System.out.println(GradesOrSchedule.choice());
+						
+					case 3: System.out.println(SortStudents.choice());
+				}
+				
+				
+				
 			}
 
 	}
